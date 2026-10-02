@@ -1,0 +1,17 @@
+{
+  "name": "fabrique-workspace",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix \"FaBRIQUE_WEB_ APP\" run dev -- --host 0.0.0.0",
+    "build": "npm --prefix \"FaBRIQUE_WEB_ APP\" run build",
+    "lint": "npm --prefix \"FaBRIQUE_WEB_ APP\" run lint",
+    "preview": "npm --prefix \"FaBRIQUE_WEB_ APP\" run preview -- --host 0.0.0.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "@tailwindcss/cli": "^4.3.3",
+    "@tailwindcss/postcss": "^4.3.3",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3"
+  }
+}

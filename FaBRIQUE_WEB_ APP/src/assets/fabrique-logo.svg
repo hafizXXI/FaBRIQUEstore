@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="title desc">
+  <title id="title">FaBRIQUE logo</title>
+  <desc id="desc">Decorative circular emblem with burgundy monogram and lace-inspired border.</desc>
+  <rect width="1000" height="1000" fill="#050505"/>
+
+  <g transform="translate(500 500)">
+    <g fill="none" stroke="#a12d36" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-280 0C-280 -155 -179 -262 0 -262c185 0 298 115 298 262 0 178-138 292-298 292-174 0-300-122-300-292Z" opacity="0.95"/>
+      <path d="M-245 0C-245 -126 -166 -204 -55 -231c39 -10 80 -14 120 -14 172 0 301 116 301 245 0 127-94 228-224 246-78 11-146 2-206-38-52-35-86-90-96-160" opacity="0.9"/>
+      <path d="M-240 -30c-62 18-104 87-104 154 0 97 91 176 201 176 123 0 214-90 214-198 0-71-36-125-96-161" opacity="0.8"/>
+    </g>
+
+    <g fill="none" stroke="#f4efe5" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-290 -50c27 -42 64 -66 121 -76 63 -11 116 -5 177 14 56 18 101 48 137 86"/>
+      <path d="M290 -50c-27 -42 -64 -66 -121 -76-63 -11-116 -5-177 14-56 18-101 48-137 86"/>
+      <path d="M-300 90c45 -28 93 -46 142 -62 60 -20 128 -31 196 -30 82 1 155 23 208 60"/>
+      <path d="M-300 90c-45 35-80 76-101 122"/>
+      <path d="M300 90c45 35 80 76 101 122"/>
+      <path d="M-110 0c18 -41 50 -63 97 -69 69 -9 130 25 153 91"/>
+      <path d="M110 0c-18 -41 -50 -63 -97 -69-69 -9-130 25-153 91"/>
+      <path d="M-90 315c35 -31 78 -49 131 -57 64 -10 131 0 188 31 39 22 74 58 96 100"/>
+      <path d="M90 315c-35 -31 -78 -49 -131 -57-64 -10-131 0-188 31-39 22-74 58-96 100"/>
+    </g>
+
+    <g fill="none" stroke="#a12d36" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+      <path d="M-220 -180c-50 26-80 78-80 138 0 95 76 171 171 171 105 0 191-90 191-198 0-74-46-139-115-168"/>
+      <path d="M220 -180c50 26 80 78 80 138 0 95-76 171-171 171-105 0-191-90-191-198 0-74 46-139 115-168"/>
+      <path d="M-202 222c49 -42 112 -67 182 -67 74 0 140 26 188 72"/>
+      <path d="M202 222c-49 -42 -112 -67 -182 -67-74 0-140 26-188 72"/>
+    </g>
+
+    <g fill="#d9d0c3" opacity="0.98">
+      <path d="M-20 -203l-34 96h68l-34-96zm-136 63l-42 65 34 14 72-38-64-41zm272 0l42 65-34 14-72-38 64-41zm-215 28l-76 45 23 34 81-28 79 28 22-34-81-45zm-162 253l-39-80 61-13 31 52-53 41zm324 0l39-80-61-13-31 52 53 41z"/>
+    </g>
+
+    <g fill="#a12d36" stroke="#a12d36" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-222 230L-42 -145h42L-180 230h-42zm-76 0L-178 -33h55L-139 230h-84zm280 0L42 -145h-42L180 230h42zm76 0L178 -33h-55L139 230h84z"/>
+      <path d="M-118 -158l-58 370h74l28-118h124l28 118h72l-58-370h-70l-22 140h-130l-22-140h-70zm20 204h140l-18 94H-118l18-94zm-36-94h222l-24 94H-98l-56-94z"/>
+    </g>
+
+    <g fill="none" stroke="#f4efe5" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-136 -206c14 24 30 39 49 49"/>
+      <path d="M136 -206c-14 24-30 39-49 49"/>
+      <path d="M-310 90c28 18 57 32 89 41"/>
+      <path d="M310 90c-28 18-57 32-89 41"/>
+      <path d="M-315 235c22 36 52 63 91 82"/>
+      <path d="M315 235c-22 36-52 63-91 82"/>
+    </g>
+  </g>
+</svg>

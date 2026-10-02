@@ -1,0 +1,25 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" rx="28" fill="#0F172A"/>
+  <rect x="60" y="60" width="1080" height="510" rx="22" fill="url(#paint0_linear)"/>
+  <circle cx="150" cy="145" r="52" fill="#EAB308" fill-opacity="0.22"/>
+  <circle cx="1035" cy="470" r="70" fill="#F97316" fill-opacity="0.15"/>
+  <path d="M160 324C160 246.137 224.137 182 302 182H430C507.863 182 572 246.137 572 324V401C572 478.863 507.863 543 430 543H302C224.137 543 160 478.863 160 401V324Z" fill="#F8FAFC" fill-opacity="0.1"/>
+  <path d="M284 285H451.5C479.062 285 501.5 307.438 501.5 335V354.5C501.5 382.062 479.062 404.5 451.5 404.5H284V285Z" fill="#F8FAFC" fill-opacity="0.12"/>
+  <path d="M280 259H454C483.823 259 508 283.177 508 313V328C508 357.823 483.823 382 454 382H280V259Z" fill="#F8FAFC" fill-opacity="0.18"/>
+  <text x="120" y="145" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" letter-spacing="3">FABRIQUE</text>
+  <text x="120" y="260" fill="#F8FAFC" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="800">Marketplace</text>
+  <text x="120" y="335" fill="#E2E8F0" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="500">for trusted fabric vendors and customers</text>
+  <rect x="120" y="380" width="220" height="64" rx="14" fill="#F59E0B"/>
+  <text x="155" y="421" fill="#111827" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700">Explore fabrics</text>
+  <text x="120" y="500" fill="#CBD5E1" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="600">Supabase • React • Vite</text>
+  <rect x="820" y="160" width="240" height="240" rx="28" fill="#F8FAFC" fill-opacity="0.08"/>
+  <path d="M900 245L950 215L1000 245V335L950 365L900 335V245Z" fill="#F59E0B" fill-opacity="0.9"/>
+  <circle cx="950" cy="280" r="34" fill="#0F172A" fill-opacity="0.8"/>
+  <path d="M918 305C931 294 942 289 950 289C958 289 969 294 982 305" stroke="#E2E8F0" stroke-width="8" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="paint0_linear" x1="79" y1="49" x2="1068" y2="578" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111827"/>
+      <stop offset="1" stop-color="#1E293B"/>
+    </linearGradient>
+  </defs>
+</svg>

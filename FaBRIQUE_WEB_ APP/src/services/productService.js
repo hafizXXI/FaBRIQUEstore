@@ -75,8 +75,9 @@ async function getProducts(options = {}) {
   }
   if (options.minPrice !== undefined) query = query.gte('price', Number(options.minPrice))
   if (options.maxPrice !== undefined) query = query.lte('price', Number(options.maxPrice))
-  query = query.order('price', { ascending: options.sort === 'price_asc' ? true : options.sort === 'price_desc' ? false : true })
-  if (!['price_asc', 'price_desc'].includes(options.sort)) query = query.order('created_at', { ascending: false })
+  if (options.sort === 'price_asc') query = query.order('price', { ascending: true })
+  else if (options.sort === 'price_desc') query = query.order('price', { ascending: false })
+  else query = query.order('created_at', { ascending: false })
   const { data, error } = await query
   if (error) throw error
   let products = (data ?? []).filter((record) => record?.vendors?.status === 'approved').map(normalizeProduct)

@@ -7,7 +7,7 @@ async function uploadProductImage({ vendorId, productId, file, altText = '', ima
   if (file.size > 10 * 1024 * 1024) throw new Error('Images must be 10 MB or smaller.')
 
   const sanitizedName = file.name.replace(/\s+/g, '-').replace(/[^a-zA-Z0-9._-]/g, '')
-  const storagePath = `${vendorId}/${productId}/${imageRole}/${Date.now()}-${sanitizedName}`
+  const storagePath = `${vendorId}/${productId}/${Date.now()}-${imageRole}-${sanitizedName}`
   const { error: uploadError } = await supabase.storage.from('product-images').upload(storagePath, file, {
     cacheControl: '3600', upsert: false, contentType: file.type,
   })

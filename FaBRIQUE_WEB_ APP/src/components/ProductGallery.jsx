@@ -6,8 +6,7 @@ function ProductGallery({ images = [], productName = 'Fabric product', listingTy
   const normalized = useMemo(() => (images || []).filter(Boolean), [images])
   const itemImages = normalized.filter((image) => (image.image_role ?? 'item') === 'item')
   const modelImages = normalized.filter((image) => image.image_role === 'model')
-  const groupImages = selectedGroup === 'model' && modelImages.length ? modelImages : itemImages
-  const galleryImages = groupImages.length ? groupImages : normalized
+  const galleryImages = selectedGroup === 'model' ? modelImages : itemImages
   const activeImage = galleryImages[selectedIndex] ?? galleryImages[0]
 
   useEffect(() => { setSelectedIndex(0) }, [selectedGroup, images])

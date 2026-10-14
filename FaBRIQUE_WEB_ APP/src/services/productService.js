@@ -131,7 +131,8 @@ async function getProductsByCondition(conditions, limit = 6) {
 }
 
 async function getPreownedStyledProducts(limit = 6) {
-  return getProducts({ condition: 'pre_owned', hasModelPhotos: true, limit, sort: 'newest' })
+  const { data } = await getProducts({ condition: 'pre_owned', hasModelPhotos: true, sort: 'newest' })
+  return { data: data.slice(0, limit), error: null }
 }
 
 async function getVendorProducts(vendorId, options = {}) {

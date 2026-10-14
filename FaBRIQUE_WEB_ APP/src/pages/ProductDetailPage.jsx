@@ -137,10 +137,10 @@ function ProductDetailPage() {
       </div>
 
       <div className="product-detail-layout">
-        <ProductGallery images={product.images} productName={product.name} />
+        <ProductGallery images={product.images} productName={product.name} listingType={product.listingType} />
 
         <div className="product-detail-copy">
-          <p className="eyebrow">{product.category?.name || 'Fabric'}</p>
+          <p className="eyebrow">{product.listingType === 'finished_outfit' ? 'Finished outfit for sale' : (product.category?.name || 'Fabric for sale')}</p>
           <h1>{product.name}</h1>
 
           <div className="price-row">
@@ -152,6 +152,7 @@ function ProductDetailPage() {
             {product.condition && <span className="chip">{product.condition.replace(/_/g, ' ')}</span>}
             {product.color && <span className="chip">{product.color}</span>}
             {product.pattern && <span className="chip">{product.pattern}</span>}
+            {product.hasModelPhotos && <span className="chip">Model photos available</span>}
           </div>
 
           <div className="detail-actions">
@@ -173,14 +174,16 @@ function ProductDetailPage() {
             </button>
           </div>
 
+          {!product.listingType || product.listingType === 'fabric' ? (product.hasModelPhotos && <p className="model-photo-prompt">The seller is modeling or styling the fabric. The garment shown is not included unless the listing explicitly says so.</p>) : null}
           <div className="detail-info-box">
-            <h2>About this fabric</h2>
+            <h2>About this {product.listingType === 'finished_outfit' ? 'outfit' : 'fabric'}</h2>
             <p>{description}</p>
             <ul className="spec-list">
               <li><span>Vendor</span><strong>{product.vendor?.storeName || 'FaBRIQUE vendor'}</strong></li>
               <li><span>Location</span><strong>{product.location || product.vendor?.city || 'Location available on request'}</strong></li>
               <li><span>Availability</span><strong>{product.quantity > 0 ? `${product.quantity} available` : 'Currently unavailable'}</strong></li>
               <li><span>Condition</span><strong>{product.condition?.replace(/_/g, ' ') || 'New'}</strong></li>
+              <li><span>Listing type</span><strong>{product.listingType === 'finished_outfit' ? 'Finished outfit' : 'Fabric'}</strong></li>
             </ul>
           </div>
         </div>

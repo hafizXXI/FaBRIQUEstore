@@ -24,6 +24,8 @@ function ExplorePage() {
     vendor: searchParams.get('vendor') || '',
     maxPrice: searchParams.get('max_price') || '',
     sort: searchParams.get('sort') || 'newest',
+    listingType: searchParams.get('listing_type') || '',
+    hasModelPhotos: searchParams.get('has_model_photos') === 'true',
   }), [searchParams])
 
   useEffect(() => {
@@ -43,6 +45,10 @@ function ExplorePage() {
     searchTerm: filters.q,
     categorySlug: filters.category || undefined,
     condition: filters.condition || undefined,
+    color: filters.color || undefined,
+    pattern: filters.pattern || undefined,
+    listingType: filters.listingType || undefined,
+    hasModelPhotos: filters.hasModelPhotos || undefined,
     maxPrice: filters.maxPrice ? Number(filters.maxPrice) : undefined,
     sort: filters.sort === 'price_asc' ? 'price_asc' : filters.sort === 'price_desc' ? 'price_desc' : 'newest',
   }), [filters])
@@ -80,7 +86,7 @@ function ExplorePage() {
       <div className="explore-header">
         <div>
           <p className="eyebrow">FaBRIQUE marketplace</p>
-          <h1>Explore fabrics</h1>
+          <h1>Explore fabrics and outfits</h1>
         </div>
         <button type="button" className="filter-toggle" onClick={() => setShowFilters((value) => !value)}>
           <Filter size={16} aria-hidden="true" />
@@ -112,6 +118,13 @@ function ExplorePage() {
           </div>
 
           <div className="filter-group">
+            <label htmlFor="listing-type-filter">Listing type</label>
+            <select id="listing-type-filter" value={filters.listingType} onChange={(event) => updateUrl({ listing_type: event.target.value })}>
+              <option value="">Fabric and outfits</option><option value="fabric">Fabric for sale</option><option value="finished_outfit">Finished outfit</option>
+            </select>
+          </div>
+
+          <div className="filter-group">
             <label htmlFor="condition-filter">Condition</label>
             <select id="condition-filter" value={filters.condition} onChange={(event) => updateUrl({ condition: event.target.value })}>
               <option value="">Any condition</option>
@@ -119,6 +132,13 @@ function ExplorePage() {
               <option value="old_stock">Old Stock</option>
               <option value="vintage">Vintage</option>
               <option value="pre_owned">Pre-owned</option>
+            </select>
+          </div>
+
+          <div className="filter-group">
+            <label htmlFor="model-photos-filter">Photos</label>
+            <select id="model-photos-filter" value={filters.hasModelPhotos ? 'true' : ''} onChange={(event) => updateUrl({ has_model_photos: event.target.value })}>
+              <option value="">All listings</option><option value="true">Has model photos</option>
             </select>
           </div>
 
@@ -155,7 +175,7 @@ function ExplorePage() {
 
         <section className="explore-results">
           <div className="results-summary">
-            {activeCategory ? <span>{activeCategory.name}</span> : <span>All fabrics</span>}
+            {activeCategory ? <span>{activeCategory.name}</span> : <span>{filters.listingType === 'finished_outfit' ? 'Finished outfits' : 'All listings'}</span>}
             <strong>{products.length} result{products.length === 1 ? '' : 's'}</strong>
           </div>
 

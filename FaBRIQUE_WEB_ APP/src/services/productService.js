@@ -68,7 +68,7 @@ async function getProducts(options = {}) {
   if (options.vendorId) query = query.eq('vendor_id', options.vendorId)
   if (options.condition) query = query.in('condition', Array.isArray(options.condition) ? options.condition : [options.condition])
   if (options.listingType) query = query.eq('listing_type', options.listingType)
-  if (options.limit) query = query.limit(options.limit)
+  if (options.limit && !options.hasModelPhotos) query = query.limit(options.limit)
   if (options.searchTerm) {
     const term = options.searchTerm.trim().replace(/[%_]/g, '\\$&').replace(/'/g, "''")
     if (term) query = query.or(`name.ilike.%${term}%,description.ilike.%${term}%,color.ilike.%${term}%,pattern.ilike.%${term}%`)
@@ -81,6 +81,7 @@ async function getProducts(options = {}) {
   if (error) throw error
   let products = (data ?? []).filter((record) => record?.vendors?.status === 'approved').map(normalizeProduct)
   if (options.hasModelPhotos) products = products.filter((product) => product.hasModelPhotos)
+  if (options.limit && options.hasModelPhotos) products = products.slice(0, options.limit)
   return { data: products, error: null }
 }
 

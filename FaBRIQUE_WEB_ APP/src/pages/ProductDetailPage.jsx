@@ -145,7 +145,7 @@ function ProductDetailPage() {
 
           <div className="price-row">
             <strong>₦{Number(product.price || 0).toLocaleString('en-NG')}</strong>
-            <span>/ {product.unit || 'yard'}</span>
+            <span>/ {product.listingType === 'finished_outfit' ? (product.unit || 'item') : (product.unit || 'yard')}</span>
           </div>
 
           <div className="meta-pill-row">

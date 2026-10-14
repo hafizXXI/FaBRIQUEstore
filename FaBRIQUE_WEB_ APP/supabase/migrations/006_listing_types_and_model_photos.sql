@@ -41,6 +41,32 @@ create trigger product_images_guard_primary_role
   on public.product_images
   for each row execute function public.guard_product_image_primary_role();
 
+-- Enforce the actual-item-photo requirement in the database, not only in the UI.
+create or replace function public.guard_published_product_has_item_photo()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+begin
+  if new.status = 'published' and not exists (
+    select 1
+    from public.product_images as image
+    where image.product_id = new.id
+      and image.image_role = 'item'
+  ) then
+    raise exception 'A published listing must have at least one actual item photo'
+      using errcode = '23514';
+  end if;
+  return new;
+end;
+$$;
+
+drop trigger if exists products_require_item_photo_before_publish on public.products;
+create trigger products_require_item_photo_before_publish
+  before insert or update of status
+  on public.products
+  for each row execute function public.guard_published_product_has_item_photo();
+
 create index if not exists product_images_product_role_order_idx
   on public.product_images (product_id, image_role, sort_order);
 

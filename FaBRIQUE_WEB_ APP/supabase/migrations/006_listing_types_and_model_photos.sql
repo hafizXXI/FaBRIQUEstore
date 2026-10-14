@@ -74,3 +74,43 @@ comment on column public.products.listing_type is
   'fabric means the fabric itself is for sale; finished_outfit means a completed garment/outfit is for sale.';
 comment on column public.product_images.image_role is
   'item photos show the actual item for sale; model photos show it styled or worn.';
+
+-- A published listing must keep at least one actual-item photo.
+-- This also prevents changing the final item photo's role to "model".
+create or replace function public.guard_published_product_keeps_item_photo()
+returns trigger
+language plpgsql
+set search_path = ''
+as $$
+declare
+  target_product_id uuid;
+begin
+  target_product_id := old.product_id;
+
+  if exists (
+    select 1
+    from public.products as product
+    where product.id = target_product_id
+      and product.status = 'published'
+  ) and not exists (
+    select 1
+    from public.product_images as image
+    where image.product_id = target_product_id
+      and image.image_role = 'item'
+      and image.id <> old.id
+  ) then
+    raise exception 'A published listing must keep at least one actual item photo'
+      using errcode = '23514';
+  end if;
+
+  return old;
+end;
+$$;
+
+drop trigger if exists product_images_keep_item_photo on public.product_images;
+create trigger product_images_keep_item_photo
+  after delete or update of image_role
+  on public.product_images
+  for each row
+  when (old.image_role = 'item' and (tg_op = 'DELETE' or new.image_role <> 'item'))
+  execute function public.guard_published_product_keeps_item_photo();
